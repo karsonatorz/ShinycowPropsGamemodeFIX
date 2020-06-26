@@ -1,0 +1,111 @@
+local contin = false
+if not contin then return end
+
+propsPaths = propsPaths or {}
+
+	-- propsPaths
+	--		1 (first bot):
+	--				first:
+	--					replaypos
+	--					startpos
+	--					starteyes
+	--					data:
+	--						1:
+	--							server frame time
+	--							velocity
+	--							eyes
+	--							pos
+	--						2:
+	--							server frame time
+	--							velocity
+	--							eyes
+	--							pos
+	--				second:
+	--					replaypos
+	--					startpos
+	--					starteyes
+	--					data:
+	--						1:
+	--							server frame time
+	--							velocity
+	--							eyes
+	--							pos
+	--		2 (second bot):
+	
+concommand.Add( "props_RecordPath", function( pl, cmd, args )
+end)
+
+concommand.Add( "props_record_reset", function( pl ) 
+	if not IsValid( pl ) then return end
+	if not arg[1] or not arg[1] == "yes" then
+		pl:ChatPrint( "This will reset ALL bot paths. Use argument 'yes' to continue.")
+		return
+	end
+
+	propsPaths = {}
+end )
+concommand.Add( "props_record_start", function( pl, cmd, arg )
+	if not IsValid( pl ) then return end
+	if not arg[1] or not arg[2] then 
+		pl:ChatPrint( "Supply a bot # and a path\nCheck console for details")
+		pl:PrintMessage( HUD_PRINTCONSOLE, "\nBot # and path examples:\nprops_record_start 1 first\nprops_record_start 1 second\nprops_record_start 2 first\n" )
+		return
+	end
+
+	local botnum = tonumber( arg[ 1 ] )
+	if not botnum then return end
+
+	propsPaths[ botnum ] = propsPaths[ botnum ] or {}
+	propsPaths[ botnum ][ arg[ 2 ] ] = propsPaths[ botnum ][ arg[ 2 ] ] or {}
+	propsPaths[ botnum ][ arg[ 2 ] ][ "replayingpos" ] = 0
+	propsPaths[ botnum ][ arg[ 2 ] ][ "startpos" ] = pl:GetPos()
+	propsPaths[ botnum ][ arg[ 2 ] ][ "starteyes" ] = pl:EyeAngles()
+	propsPaths[ botnum ][ arg[ 2 ] ][ "data" ] = {}
+	pl.RecordMovement = { botnum = botnum, place = arg[ 2 ] }
+
+	pl:ChatPrint( "started" )
+end )
+concommand.Add( "props_record_stop", function( pl )
+	pl.RecordMovement = nil
+	pl:ChatPrint( "stopped" )
+end )
+
+concommand.Add( "props_replay_start", function( pl, cmd, arg )
+	if not pl:IsSuperAdmin() then return end
+
+	if not arg[1] or not arg[2] then 
+		pl:ChatPrint( "Supply a bot # and a path\nCheck console for details")
+		pl:PrintMessage( HUD_PRINTCONSOLE, "\nBot # and path examples:\nprops_replay_start 1 first\nprops_replay_start 1 second\nprops_replay_start 2 first\n" )
+		return
+	end
+
+	pl.ReplayMarked = tonumber( arg[ 1 ] )
+	pl.ReplayMovement = arg[ 2 ]
+end )
+concommand.Add( "props_replay_stop", function( pl )
+	pl.ReplayMarked = nil
+	pl.ReplayMovement = nil
+	--REPLAYING_POS = 0
+	pl.ReplayTrigger = false
+end)
+
+hook.Add( "StartCommand", "props_ReplayPlayerMovement", function( pl, cmd )
+	if pl.RecordMovement then
+		
+		-- record player velocity, and eyeangles
+		-- should do it ??
+		--PrintTable( pl.RecordMovement )
+		local movement_botnum = pl.RecordMovement[ "botnum" ]
+		local movement_botplace = pl.RecordMovement[ "place" ]
+
+		--PrintTable( RECORDING[ movement_botnum ][ movement_botplace ] )
+		--print ( #RECORDING[ movement_botnum ][ movement_botplace ][ "data" ] )
+		local buttons = cmd:GetButtons()
+		local jumping = bit.band( buttons, IN_JUMP ) == IN_JUMP
+		local ducking = bit.band( buttons, IN_DUCK ) == IN_DUCK
+
+		propsPaths[ movement_botnum ][ movement_botplace ][ "data" ][ #propsPaths[ movement_botnum ][ movement_botplace ][ "data" ] + 1 ] = { frametime = RealTime(), velocity = pl:GetVelocity(), eyes = pl:EyeAngles(), pos = pl:GetPos(), jumping = jumping, crouching = ducking}
+
+		return
+	end
+end )

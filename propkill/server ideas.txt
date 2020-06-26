@@ -1,0 +1,148 @@
+instead of "Time Limit" (which is a bitch to implement or something, idk it hasnt been done yet!)
+	do.. "Prop Limit" for the battling, minimum 1 prop, maximum 5
+		
+		DONE
+
+have a checkbox toggle for a  "fun" fight
+	DONE
+	
+record how long it took the fight to finish
+	DONE
+	
+	
+add pause for players in fight
+	each player gets 3 pauses per fight, pause lasts 20 seconds
+	during pause nobody can spawn props
+	
+			DONE
+	
+if a player d/c (potential game crash or internet connection loss) during a fight
+	within 3 minutes, let them resume their fight
+
+headsmash bonus shist!! like flyby and longshot!!
+
+	DONE
+	
+add a button in fight menu for "Advanced Options"
+	opens menu for things like
+	
+	fun fight
+	prop dormancy: on/off
+	player dormancy: on/off
+	
+	
+		DONE
+		
+for players that let time run out,
+	check if like 3 mins in fight they have less than 2 kills each
+	
+	DONE
+	
+NOW that above is done ^^^,
+	make it a random time so they dont just start fighting at like 2mintues 24 seconds
+	so it could be at 3 minute mark
+	or something...
+	
+players that are restricted by time limit can reset it by disconnecting and reconnecting
+FIX IT
+		DONE
+	
+VOTES for dormancy total turned off for 10 minutes at a time
+	PARTIALLY DONE NEEDS REDONE? 11/17/2015
+	
+	MORE IDEAS TO COME ?
+	
+	
+a !resetmystats command, resets the player's saved kills and deaths along wiht anything else
+	can only use once they get 100 kills
+	
+		DONE
+	
+add seperate tab showing server statistics
+	d:		total suicides
+	d:		total kills
+	d:		highest killstreak
+	d:		total amount of players joined
+	total amount of players banned
+	d:		total props spawned
+	highest velocity reached
+	velocity reached this session
+	d:		longest deathstreak
+	d:		total messages sent
+	longest time in air
+	d:		total fights
+	d:		total longshots
+	d:		total flyby's
+	d:		total headsmashes
+	
+	in the display, show total kills, total suicides, total deaths minus suicides ?? 
+	
+	player with most bans ?
+	player with most messages sent ?
+	player with highest props total spawned ?
+	
+	
+have the bots record fights and have ability to replay the fights later on with them	
+	
+	
+	
+
+for SANDOBX SERVER:
+	have a dedicated spot in skybox for builders:
+		anti noclip surrinding the "gm_spawn models/hunter/plates/plate32x32.mdl"
+		, players can invite one other person to be in there with them
+
+		if they abuse it like fuck with others while in trusted position, they get keys rebinded
+
+	have players claim they can crash server with button?
+	if it succeeds, they get a hat from pointshop. to show all that they can crash a server. yipee
+
+	have a 3d2d text over peoples heads showing if they have godmode or not
+	
+	have 2 modes - peace mode and war mode
+		peace has lower chance of losing godmode by chance
+			cant spawn great npcs
+			cant spawn flying npcs ( helis, dropships )
+			
+		war has the same chance as before of losing godmode
+			can dothe regular shit
+			
+		each mode lasts 30 minutes
+		
+	
+	instead of those 2 modes:
+		
+		
+	have a mazelike structure in skybox (made with unbreakable wooden crates)
+		players may opt in at any time but there has to be at least 2 (3?) to participate
+		and max of 4 players (they all start at a seperate corner)
+			there will be scoreboard for all players attending
+				first person to 3 kills (5 if there's 4 players)  ?
+				OR
+				last man standing
+				
+				OR 
+				have server advertise which one its doing at the moment
+	
+	
+	add command for players to freeze their props spawned
+		( for cool physics effects ? )
+	
+	add the player team push thing from old wolfet gamemode
+	
+		to build onto that:
+			have a bar that goes up and down similar to golfing apps
+				? maybe ^^^
+			charges up the push but you have to hold it
+			downsides?
+				i guess you cant use any other weapon
+			possibility 1/10 to overextend your arms and cause you to die.
+	when someone spam deletes a lot of someones props
+		notify that player who's doing it, as well as their ip ;)
+		
+	add the module willox was working on to walk on walls literately ?
+	
+	have a minigame where players get to opt into a fight, they are placed inskybox as a sort of spectator, they become
+	sort of like DOTA players / civ5 kind of shit.. other players cannot enter skybox
+	
+	add spiderman swep

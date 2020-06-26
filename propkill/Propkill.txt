@@ -1,0 +1,11 @@
+"Propkill"
+{
+	"base"		"sandbox"
+	"title"		"Propkill"
+	"version"	"69"
+	"menusystem" "1"
+
+	"author_name"	"EPIC"
+	"author_email"	""
+	"author_url"	"facepunch.com"
+}

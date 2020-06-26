@@ -1,0 +1,93 @@
+Make HUD and menus universal resolution
+
+Finish battling system
+	DONE
+
+add config item to Player Spawning 
+	item to allow blocked model spawning, and no blocking big props
+
+im pretty sure if a superadmin changes a setting 
+	when another superadmin isnt on server
+	and then said superadmin joins, it will show the unchanged setting as before.
+
+	fix
+			FIXED
+			
+
+make people with longer names use smaller fonts
+
+	DONE.
+	
+fix prop blocking spawn.. wtf
+	fixed ?? ?
+	
+	FIXED.
+	
+~~apparenlty~~ sometimes peoples xrays swap colors ONLY ON MY SERVER
+	
+	
+if a player joins when a battle is in progress it wont show the hud
+	FIXED
+	
+	NOT ACTUALLY FIXED??
+	
+	FIXED.
+	
+with latest update it showed 1 hour timer for me, but it was actually 2 minutes for battlers ??
+	fight apparently didnt even end when it reached 00:00
+	
+	FIXED
+
+make battling hud smaller, it is very intrusive
+	about half as small
+		ALTERNATIVELY
+			replace the hostname of scoreboard with the entire battling scores
+			when you press tab of course
+
+
+			DONE
+			
+Fix scoreboard showing long names
+
+	FIXED
+
+Fix killstreaks not updating to longest !
+	
+	FIXED
+	
+Add a menu to show fight results, like in my previous gamemode
+	
+	DONE
+
+figure out why statistics breaks
+
+add some sounds for more ~immersion~ -- Eagle
+
+Add light effects when two props collide -- Eagle
+
+If a player leaves the server when in fight they will lose
+	but they don't actually ~lose~
+		as in they don't have it saved that they lost.
+		SO FIX IT
+		
+When a player first dies, they usually try spawning a prop
+	but this results in like, spam! of the "you must be alive to spawn props"
+	so make it check if the player hasnt died in the last 0.5 before showing it
+	
+		done
+	
+Design fix for top props
+
+		done
+		
+send blocked models to all clients on spawn
+	in spawn menu add a "BLOCKED" text to the model if its blocked
+	yas
+	
+add a module that overrides Player.UniqueID (cache results)
+	its expensive.
+	
+override string.len and # for text displaying
+with utf8.len
+	
+	this will fix wrong sizes for people with unicode names as they dont return tright size with "#" operator

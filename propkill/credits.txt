@@ -1,0 +1,7 @@
+thelastpenguin for pON encoder - http://facepunch.com/showthread.php?t=1367349
+
+anthr4x for a flying check method i guess
+
+The War for color scheme ideas on scoreboard
+
+Mista-Tea for netwrapper - https://github.com/Mista-Tea/netwrapper
