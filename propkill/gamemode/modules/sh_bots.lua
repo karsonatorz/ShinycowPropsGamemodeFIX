@@ -42,6 +42,23 @@ if not ulx then return end
 
 local CATEGORY_NAME = "Propkill"
 
+function ulx.kickBots(calling_ply)
+	local tblBots = player.GetBots()
+	if #tblBots <= 0 then
+		return -- there's no bots to kick!
+	end
+
+	for i = 1, #tblBots do
+		tblBots[i]:Kick("goodbye bot")
+	end
+
+	ulx.fancyLogAdmin(calling_ply, "#A kicked all bots!")
+end
+
+local kickBots = ulx.command(CATEGORY_NAME, "ulx kickbots", ulx.kickBots, "!kickbots")
+kickBots:defaultAccess(ULib.ACCESS_ALL)
+kickBots:help("Kicks all active bots on the server.")
+
 function ulx.pkBot( calling_ply )
 	if #player.GetBots() > 0 then return end
 	local pls = #player.GetAll()

@@ -32,7 +32,7 @@ function PANEL:Init()
 				if not IsValid( self.Player ) then
 					return
 				end
-				self.Player:SetMuted( true )
+				self.Player:SetMuted( false )
 			end )
 			
 			unmute:SetIcon( "icon16/telephone_add.png" )
@@ -41,7 +41,7 @@ function PANEL:Init()
 				if not IsValid( self.Player ) then
 					return
 				end
-				self.Player:SetMuted( false )
+				self.Player:SetMuted( true )
 			end )
 			
 			mute:SetIcon( "icon16/telephone_delete.png" )
