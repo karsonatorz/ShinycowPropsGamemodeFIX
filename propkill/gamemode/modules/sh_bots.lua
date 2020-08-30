@@ -42,7 +42,7 @@ if not ulx then return end
 
 local CATEGORY_NAME = "Propkill"
 
-function ulx.kickBot(calling_ply)
+function ulx.kickBots(calling_ply)
 	local tblBots = player.GetBots()
 	if #tblBots <= 0 then
 		return -- there's no bots to kick!
