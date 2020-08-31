@@ -414,38 +414,3 @@ timer.Create( "props_BOTFINDNEXTTARGET", 1, 0, function()
 		pl.TargetAssigned = nearest
 	end
 end )
-		
-	
-
-concommand.Add( "testpropthrow", function( pl )
-	local tblPlayers = player.GetAll()
-
-	for i = 1, #tblPlayers do
-		if not tblPlayers[i]:IsBot() then
-			return
-		end
-	end
-	
-	local dir = ( pl:GetPos() - Entity(2):GetPos() ):GetNormal(); -- replace with eyepos if you want
-
-	pl:SetEyeAngles( ( (Entity(2):GetPos() + Vector( 0, 0, 64 )) - pl:EyePos() ):GetNormalized():Angle() )
-					local ent = ents.Create( "prop_physics" )
-					ent:SetModel( "models/props/de_tides/gate_large.mdl" )
-					ent:SetPos( pl:EyePos() + ( pl:GetAimVector() * 100 ) )
-					local ang = pl:EyeAngles()
-					ang.y = ang.y + 180
-					ang.p = 0
-					ent:SetAngles( ang )
-					ent:Spawn()
-					ent:GetPhysicsObject():SetVelocity( pl:GetAimVector() * (1300 * pl:GetPos():Distance( Entity(2):GetPos() ) ) )
-					
-	ent.Owner = pl
-	pl.Entities = pl.Entities or {}
-	pl.Entities[ #pl.Entities + 1 ] = ent
-	cleanup.Add( pl, "props", ent )
-
-	undo.Create( "thrown_prop" )
-		undo.AddEntity( ent )
-		undo.SetPlayer( pl )
-	undo.Finish()
-end )
