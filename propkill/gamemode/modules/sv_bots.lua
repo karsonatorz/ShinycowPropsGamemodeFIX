@@ -418,8 +418,12 @@ end )
 	
 
 concommand.Add( "testpropthrow", function( pl )
-	if pl:Team() == TEAM_SPECTATOR then
-		return
+	local tblPlayers = player.GetAll()
+
+	for i = 1, #tblPlayers do
+		if not tblPlayers[i]:IsBot() then
+			return
+		end
 	end
 	
 	local dir = ( pl:GetPos() - Entity(2):GetPos() ):GetNormal(); -- replace with eyepos if you want
