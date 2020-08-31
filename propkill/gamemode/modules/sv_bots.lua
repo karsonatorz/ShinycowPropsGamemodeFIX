@@ -418,7 +418,11 @@ end )
 	
 
 concommand.Add( "testpropthrow", function( pl )
-local dir = ( pl:GetPos() - Entity(2):GetPos() ):GetNormal(); -- replace with eyepos if you want
+	if pl:Team() == TEAM_SPECTATOR then
+		return
+	end
+	
+	local dir = ( pl:GetPos() - Entity(2):GetPos() ):GetNormal(); -- replace with eyepos if you want
 
 	pl:SetEyeAngles( ( (Entity(2):GetPos() + Vector( 0, 0, 64 )) - pl:EyePos() ):GetNormalized():Angle() )
 					local ent = ents.Create( "prop_physics" )
