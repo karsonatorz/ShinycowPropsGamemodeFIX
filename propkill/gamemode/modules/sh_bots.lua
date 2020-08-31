@@ -60,7 +60,7 @@ kickBots:defaultAccess(ULib.ACCESS_ALL)
 kickBots:help("Kicks all active bots on the server.")
 
 function ulx.pkBot( calling_ply )
-	if #player.GetBots() > 0 then return end
+	-- if #player.GetBots() > 0 then return end
 	local pls = #player.GetAll()
 	local bos = #player.GetBots()
 		-- change to 1
