@@ -418,7 +418,15 @@ end )
 	
 
 concommand.Add( "testpropthrow", function( pl )
-local dir = ( pl:GetPos() - Entity(2):GetPos() ):GetNormal(); -- replace with eyepos if you want
+	local tblPlayers = player.GetAll()
+
+	for i = 1, #tblPlayers do
+		if not tblPlayers[i]:IsBot() then
+			return
+		end
+	end
+	
+	local dir = ( pl:GetPos() - Entity(2):GetPos() ):GetNormal(); -- replace with eyepos if you want
 
 	pl:SetEyeAngles( ( (Entity(2):GetPos() + Vector( 0, 0, 64 )) - pl:EyePos() ):GetNormalized():Angle() )
 					local ent = ents.Create( "prop_physics" )
