@@ -45,20 +45,7 @@ function PANEL:Init()
 			end )
 			
 			mute:SetIcon( "icon16/telephone_delete.png" )
-		end
-		
-			-- check ulx permissions?
-		if LocalPlayer():IsSuperAdmin() then
-			local grabip = dmenu:AddOption( "Grab IP", function()
-				if not IsValid( self.Player ) then
-					return
-				end
-				RunConsoleCommand( "ulx", "grabip", self.Player:Nick() )
-			end )
-			
-			grabip:SetIcon( "icon16/eye.png" )
-		end
-			
+		end	
 		
 		dmenu:AddSpacer()
 		dmenu:AddOption( "Close", function()
